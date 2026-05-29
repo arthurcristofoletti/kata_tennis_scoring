@@ -1,0 +1,15 @@
+[tool.ruff]
+# Target Python version
+target-version = "py311"
+
+# Enable specific rule categories (E = Error, W = Warning, F = Pyflakes)
+select = ["E", "W", "F"]
+
+# Tell Ruff to ignore specific rules completely if they are too annoying
+ignore = [
+    "E501", # Ignore line-length violations (let lines be long)
+]
+
+[tool.ruff.lint]
+# You can selectively turn off certain strict behaviors
+ignore-init-module-imports = true
