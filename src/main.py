@@ -1,13 +1,26 @@
-from src.app import Processor
+from src.app import player, game
 
+def start_players():
+    player1_name = input("Enter name for Player 1: ")
+    player2_name = input("Enter name for Player 2: ")
+    return player1_name, player2_name
 
-def run_pipeline() -> str:
-    """Orchestrates the pipeline execution flow."""
-    processor = Processor(data_type="Ads Analytics")
-    result = processor.process_element(500)
-    print(f"[{processor.data_type}] Pipeline processing result: {result}")
-    return f"Success: {result}"
-
+def start_game(player1_name, player2_name):
+    player1 = player(player1_name)
+    player2 = player(player2_name)
+    match = game(player1, player2)
+    while True:
+        point_winner = input("Enter the name of the player who won the point (or 'exit' to quit): ")
+        if point_winner.lower() == 'exit':
+            print("Exiting the game.")
+            break
+        elif point_winner not in [player1_name, player2_name]:
+            print("Invalid player name. Please try again.")
+            continue
+        match.update_game_score(match.player1, match.player2, point_winner)
+        print(match)
 
 if __name__ == "__main__":
-    run_pipeline()
+    player1_name, player2_name = start_players()
+    print(f"Players initialized: {player1_name} vs {player2_name}")
+    start_game(player1_name, player2_name)
