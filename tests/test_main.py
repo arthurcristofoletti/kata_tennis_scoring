@@ -6,10 +6,9 @@ def test_start_players(monkeypatch):
     assert player1_name == "Alice"
     assert player2_name == "Bob"
 def test_start_game(monkeypatch):
-    inputs = iter(["Alice", "Bob", "Alice", "Bob", "Alice", "Alice", "exit"])
+    inputs = iter(["Alice", "Bob", "Alice", "Bob", "Alice", "Bob", "Alice", "Bob", "Alice", "Bob", "exit"])
     monkeypatch.setattr('builtins.input', lambda _: next(inputs))
     player1_name, player2_name = start_players()
-    assert player1_name == "Alice"
-    assert player2_name == "Bob"
-    start_game(player1_name, player2_name)
-    
+    start_game(player1_name, player2_name)  
+
+        

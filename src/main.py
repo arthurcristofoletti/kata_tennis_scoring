@@ -9,7 +9,10 @@ def start_game(player1_name, player2_name):
     player1 = player(player1_name)
     player2 = player(player2_name)
     match = game(player1, player2)
-    while True:
+    print(f"Game started between {player1_name} and {player2_name}")
+    print(f"Initial score: {player1_name} {player1.score} - {player2_name} {player2.score}")
+    print("Game in progress...")
+    while match.winner is None:
         point_winner = input("Enter the name of the player who won the point (or 'exit' to quit): ")
         if point_winner.lower() == 'exit':
             print("Exiting the game.")
@@ -17,8 +20,13 @@ def start_game(player1_name, player2_name):
         elif point_winner not in [player1_name, player2_name]:
             print("Invalid player name. Please try again.")
             continue
+        print("Updating score... ")
         match.update_game_score(match.player1, match.player2, point_winner)
-        print(match)
+        print("game score updated")
+        print("showing score board")
+        match.score_board()
+        print (match.winner)
+
 
 if __name__ == "__main__":
     player1_name, player2_name = start_players()
