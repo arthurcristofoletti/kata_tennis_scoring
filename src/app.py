@@ -15,7 +15,6 @@ class player:
         #print(f"Player score is {self.score}")
         return self.score
 
-    
 class game:
     def __init__(self, player1, player2):
         self.player1 = player1
@@ -29,8 +28,7 @@ class game:
 
     def declare_winner(self, point_winner):
         self.winner = point_winner
-        print(f"{point_winner} wins the game!")    
-        
+        print(f"{point_winner} wins the game!")
 
     def update_player_score(self, point_winner):
         print ("point winner: ", point_winner)
@@ -58,7 +56,6 @@ class game:
            elif self.check_deuce(self.player1, self.player2):
              self.deuce = True       
 
-
     def next_point(self, current_score):
         possible_scores = [0, 15, 30, 40]
         if current_score in possible_scores:
@@ -66,14 +63,12 @@ class game:
             return possible_scores[possible_scores.index(current_score) + 1]
         else:
             raise ValueError("Invalid score")
-    
+
     def check_deuce(self, player1, player2):
-        return player1.player_score() == 40 and player2.player_score() == 40  
-    
+        return player1.player_score() == 40 and player2.player_score() == 40
+
     def check_advantage(self):
         return self.advantage
-    
-
 
     def update_game_score(self, player1, player2, point_winner ):
         print(f"Updating game score for point winner: {point_winner}")
