@@ -31,19 +31,19 @@ class game:
         print(f"{point_winner} wins the game!")
 
     def update_player_score(self, point_winner):
-        if point_winner == self.player1.player_name(): 
+        if point_winner == self.player1.player_name():
            if self.player1.player_score() < 40:
              self.player1.update_score(self.next_point(self.player1.player_score()))
            elif self.player1.player_score() == 40:
              if self.player2.player_score() < 40:
               self.declare_winner(point_winner)
-        if point_winner == self.player2.player_name(): 
+        if point_winner == self.player2.player_name():
            if self.player2.player_score() < 40:
              self.player2.update_score(self.next_point(self.player2.player_score()))
            elif point_winner == self.player2.player_name() and self.player2.player_score() == 40 and self.player1.player_score() < 40:
              self.declare_winner(point_winner)
         if self.check_deuce(self.player1, self.player2):
-            self.deuce = True       
+            self.deuce = True
 
     def next_point(self, current_score):
         possible_scores = [0, 15, 30, 40]
@@ -75,4 +75,3 @@ class game:
 
     def score_board(self):
         print(f"Score: {self.player1.player_name()} {self.player1.player_score()} - {self.player2.player_name()} {self.player2.player_score()}")
-       

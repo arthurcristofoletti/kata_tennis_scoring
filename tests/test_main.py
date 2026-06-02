@@ -9,6 +9,5 @@ def test_start_game(monkeypatch):
     inputs = iter(["Alice", "Bob", "Alice", "Bob", "Alice", "Bob", "Alice", "Bob", "Alice", "Bob", "exit"])
     monkeypatch.setattr('builtins.input', lambda _: next(inputs))
     player1_name, player2_name = start_players()
-    start_game(player1_name, player2_name)  
+    start_game(player1_name, player2_name)
 
-        
